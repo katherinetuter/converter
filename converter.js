@@ -4,6 +4,7 @@ convertedTemp.onclick();
 function toCelsius () {
 	var toC = [t] - 32
 / 1.8;
+
 convertedTemp.onclick();
 }
 //convert temperature from C to F
