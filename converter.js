@@ -9,11 +9,11 @@ document.querySelector("#text").addEventListener("keyPress", function (e) {
 });
 
 function toCelsius (x) {
- 	return (x - 32) / 5/9;
+ 	return (x - 32) / 1.8;
 }
 
 function toFahrenheit (x) {
-  	return (x * 9/5) + 32;
+  	return (x * 1.8) + 32;
  }
 
 function determineConverter () {
@@ -31,6 +31,17 @@ function determineConverter () {
 	var fAnswer = toFahrenheit(celTemp); //call toFahrenheit function
 	document.getElementById("answer").innerHTML = "<p>" + fAnswer + " &deg; Fahrenheit</p>"; //write answer to html
 	}
+	if(fAnswer > 90 || cAnswer > 32) {
+    answer.className = "red-font";
+	}
+  else if (fAnswer < 32 || cAnswer < 0) {
+		answer.className = "blue-font";
+	}
+	else {
+		answer.className = "green-font";
+	}
+	
+
 }
 
 
