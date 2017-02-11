@@ -6,13 +6,17 @@
 </head>
 <body>
 	<div>
-		<input type="text" id="text" name="Temperature" placeholder="enter temperature here">
-		<input type="radio" name="Scale" id="fahrenheit" placeholder="Fahrenheit"> Fahrenheit
-		<input type="radio" name="Scale" id="celsius" placeholder="Celsius"> Celsius
+		<form>
+			<input type="text" id="text" name="Temperature" placeholder="enter temperature here">
+			<input type="radio" name="Scale" id="fahrenheit" placeholder="Fahrenheit"> Fahrenheit
+			<input type="radio" name="Scale" id="celsius" placeholder="Celsius"> Celsius
+		</form>
 	</div>
 	<div id="converter">
-		<button id="convertedTemp"></button> Convert!
-		<button id="clear"></button> Clear text from input field
+		<button id="convertedTemp" name="button">Convert!</button> <br>
+		<button id="clear" name="button"">Clear text input</button> <br>
+	</div>
+	<div id="answer">
 	</div>
 
 	<script type="text/javascript" src="./converter.js"></script>

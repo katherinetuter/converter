@@ -1,59 +1,41 @@
-// Determine which radio button is selected--wrap in a fucntion so this doesn't happen till i call it
-function determineConverter () {
- 	if(document.getElementById("fahrenheit").checked) {
-	document.getElementById("fahrenheit").value;
-	console.log("event", clickEvent);
-	else {return false};
-
- function grabValue() {
-	if(document.getElementById("temperature")) {
-	document.getElementById("temperature").value;
-	else {return false};
-};
-
-
-//Capture value from input
-var fahrenheitValue = document.getElementById("fahrenheit").checked;
-var celsiusValue = document.getElementById("celsius").checked;
-
-
-//Checks to see if enter was pressed--if so convert
-function pressEnter () {
-	var enterPressed = event.keyCode; 
-	if(enterPressed == 13 && document.getElementById("fahrenheit").checked) {
-	function toCelsius () {
- 	(fahrenheitValue - 32) / 1.8;
+//Get a reference to the button element in the DOM & assign function
+var button = document.getElementById("converter");
+button.addEventListener("click", determineConverter);
+document.querySelector("#text").addEventListener("keyPress", function (e) {
+	var key = e.which || e.keyCode;
+	if (key === 13) {
+		determineConverter();
 	}
+});
+
+function toCelsius (x) {
+ 	return (x - 32) / 5/9;
 }
-else {return false};
 
-
-if(enterPressed == 13 && document.getElementById("celsius") == true) {
- function() {}unction toFahrenheit () {
-  	(celsiusValue - 32) / 1.8;
- 	}
-}
-else {return false};
-
-//clear the text box after converting
-function clearText() {
-	document.getElementById("text").value="";
-};
-
-
-//convertedTemp.onclick();
-
-
-
-
-convertedTemp.onclick();
+function toFahrenheit (x) {
+  	return (x * 9/5) + 32;
  }
 
+function determineConverter () {
+ if(document.getElementById("fahrenheit").checked) {
+	var farTemp = document.getElementById("text").value; //get F value from input
+	document.getElementById("text").value=""; //clear F
+	document.getElementById("fahrenheit").value;
+	var cAnswer = toCelsius(farTemp); //call toCelsius function
+	document.getElementById("answer").innerHTML = "<p>" + cAnswer + " &deg; Celsius</p>"; //write answer to html
+	}
+	else if (document.getElementById("celsius").checked) {
+	var celTemp = document.getElementById("text").value; //get C value from input
+	document.getElementById("text").value=""; //clear C
+	var cToF = document.getElementById("celsius").value;
+	var fAnswer = toFahrenheit(celTemp); //call toFahrenheit function
+	document.getElementById("answer").innerHTML = "<p>" + fAnswer + " &deg; Fahrenheit</p>"; //write answer to html
+	}
+}
 
-// // // Get a reference to the button element in the DOM
-var button = document.getElementById("converter");
+
+ 
 
 
 
-// // // Assign a function to be executed when the button is clicked
-// // button.addEventListener("click", determineConverter);
+
