@@ -1,5 +1,5 @@
 //Get a reference to the button element in the DOM & assign function
-var button = document.getElementById("converter");
+var button = document.getElementById("convertedTemp");
 button.addEventListener("click", determineConverter);
 //set the clear button to clear input field
 var clearButton = document.getElementById("clear");
@@ -13,7 +13,8 @@ document.querySelector("#text").addEventListener("keyPress", function (e) {
 });
 
 function clearText () {
-	document.getElementById("text").value="";
+	document.getElementById("text").value= "";
+	document.getElementById("answer").innerHTML = ""; //write answer to html
 }
 
 function toCelsius (x) {
@@ -25,22 +26,22 @@ function toFahrenheit (x) {
  }
 
 function determineConverter () {
- if(document.getElementById("fahrenheit").checked) {
-	var farTemp = document.getElementById("text").value; //get F value from input
-	document.getElementById("fahrenheit").value;
-	var cAnswer = toCelsius(farTemp); //call toCelsius function
-	document.getElementById("answer").innerHTML = "<p>" + cAnswer + " &deg; Celsius</p>"; //write answer to html
+	if(document.getElementById("fahrenheit").checked) {
+		var farTemp = document.getElementById("text").value; //get F value from input
+		document.getElementById("fahrenheit").value;
+		var cAnswer = toCelsius(farTemp); //call toCelsius function
+		document.getElementById("answer").innerHTML = "<p>" + cAnswer + " &deg; Celsius</p>"; //write answer to html
 	}
 	else if (document.getElementById("celsius").checked) {
-	var celTemp = document.getElementById("text").value; //get C value from input
-	var cToF = document.getElementById("celsius").value;
-	var fAnswer = toFahrenheit(celTemp); //call toFahrenheit function
-	document.getElementById("answer").innerHTML = "<p>" + fAnswer + " &deg; Fahrenheit</p>"; //write answer to html
+		var celTemp = document.getElementById("text").value; //get C value from input
+		var cToF = document.getElementById("celsius").value;
+		var fAnswer = toFahrenheit(celTemp); //call toFahrenheit function
+		document.getElementById("answer").innerHTML = "<p>" + fAnswer + " &deg; Fahrenheit</p>"; //write answer to html
 	}
 	if(fAnswer > 90 || cAnswer > 32) {
-    answer.className = "red-font";
+    	answer.className = "red-font";
 	}
-  else if (fAnswer < 32 || cAnswer < 0) {
+  	else if (fAnswer < 32 || cAnswer < 0) {
 		answer.className = "blue-font";
 	}
 	else {
